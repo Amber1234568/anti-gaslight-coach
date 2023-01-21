@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter.ttk import *
+from activity import communication
 
 window = tk.Tk()
 window.title("Conflict Coach")
@@ -24,6 +25,19 @@ def handle_start(event):
             s1_lbl2["text"] = "Amy: \nI’m older so I should have control of the remote control!\n"
 
     def handle_reply():
+        starter = s1_lbl2["text"].split(": ")[-1]
+        starter_res = communication.get_class(starter)
+
+        reply = entry.get()
+        reply_res = communication.get_class(reply)
+
+        final_res = communication.reasonable_answer(starter_res, reply_res)
+        
+        res_lbl = tk.Label(newWindow,
+            text = f"{final_res}" )
+        res_lbl.grid(row=2, column=0, padx=5, pady=5)
+
+
         s1_lbl1.grid_forget()
         s1_lbl2.grid_forget()
         print("yep")

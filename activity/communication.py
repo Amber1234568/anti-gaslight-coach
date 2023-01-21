@@ -43,22 +43,25 @@ def get_class(response: str) -> str:
 
 
 def reasonable_answer(class_start: str, class_response: str) -> str:
-    if class_start == class_response:
+    if class_start == class_response and class_response != "negative":
         print(f"Your response is {class_response}, "
               f"same as the speaker, this is reasonable.")
     else:
         if class_start == "negative" and class_response == "positive":
-            print(f"You are too kind")
+            return(f"You are too kind, try speaking up fpr yourself in the future.")
+        elif class_start == class_response == "negative":
+            return(f"You stood up for yourself. \n"+
+            "But maybe there is a more subtle way.")
         elif class_start == "negative" and class_response == "neutral\"":
-            print(f"You are a little too kind")
+            return(f"You are a little too kind.")
         elif class_start == "positive" and class_response == "negative":
-            print(f"You are a little too mean")
+            return(f"You are too mean! Try to be more polite.")
         elif class_start == "positive" and class_response == "neutral\"":
-            print(f"You are a little too mean")
+            return(f"This is reasonable, but maybe you should show more kindness.")
         elif class_start == "neutral\"" and class_response == "positive":
-            print(f"You are kind! Good job.")
+            return(f"You are kind! Good job.")
         elif class_start == "neutral\"" and class_response == "negative":
-            print(f"You can be more negative")
+            return(f"That's not so kind! Be kind to others.")
 
 
 if __name__ == '__main__':
