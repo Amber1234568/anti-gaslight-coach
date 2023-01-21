@@ -35,12 +35,10 @@ def get_class(response: str) -> str:
         inputs=[response],
         examples=examples,
     )
-
     sentence = str(response_class.classifications[0])
     result = sentence.index('prediction: ')
     result_class = sentence[result + 13: result + 21]
     return result_class
-
 
 def reasonable_answer(class_start: str, class_response: str) -> str:
     if class_start == class_response and class_response != "negative":
