@@ -38,12 +38,12 @@ def get_class(response: str) -> str:
 
 def reasonable_answer(class_response: str) -> str:
     if class_response == "confident":
-        return f"Your response shows you are a {class_response} person, good job!"
+        return f"Your response shows you are a {class_response} person, \ngood job!"
     elif class_response == "low self-esteem":
-        return f"Be confident, express your feeling if you are offended"
+        return f"Be confident, express your feeling if you are offended."
     else:
         return f"Good job, " \
-               f"you stand your ground and don't let others influence you!"
+               f"you stand your ground and \ndon't let others influence you!"
 
 
 if __name__ == '__main__':
